@@ -17,7 +17,7 @@ public class WechatController {
 		String nonce = request.getParameter("nonce");
 		String echostr = request.getParameter("echostr");
 
-		request.setAttribute("good", "ddfdfdfdfd");
+		request.setAttribute("echostr", echostr);
 		System.out.println("signature is " + signature);
 		System.out.println("timestamp is " + timestamp);
 		System.out.println("timestamp is " + timestamp);
