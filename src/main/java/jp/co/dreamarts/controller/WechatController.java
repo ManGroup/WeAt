@@ -16,12 +16,16 @@ public class WechatController {
 		String timestamp = request.getParameter("timestamp");
 		String nonce = request.getParameter("nonce");
 		String echostr = request.getParameter("echostr");
-
+		
+		String content = request.getParameter("content");
+		
 		request.setAttribute("echostr", echostr);
 		System.out.println("signature is " + signature);
 		System.out.println("timestamp is " + timestamp);
 		System.out.println("timestamp is " + timestamp);
 		System.out.println("echostr is " + echostr);
+		System.out.println("content is " + content);
+		
 		return "index";
 	}
 
