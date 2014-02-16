@@ -17,14 +17,17 @@ public class WechatController {
 		String nonce = request.getParameter("nonce");
 		String echostr = request.getParameter("echostr");
 		
-		String content = request.getParameter("content");
+		String content = request.getParameter("Content");
+		String fromUserName = request.getParameter("FromUserName");
+		
 		
 		request.setAttribute("echostr", echostr);
 		System.out.println("signature is " + signature);
 		System.out.println("timestamp is " + timestamp);
-		System.out.println("timestamp is " + timestamp);
+
 		System.out.println("echostr is " + echostr);
 		System.out.println("content is " + content);
+		System.out.println("fromUserName is " + fromUserName);
 		
 		return "index";
 	}
