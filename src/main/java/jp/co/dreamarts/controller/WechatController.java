@@ -1,5 +1,8 @@
 package jp.co.dreamarts.controller;
 
+import java.io.IOException;
+import java.util.Scanner;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,7 +14,19 @@ public class WechatController {
 
 	@RequestMapping("/token.do")
 	public String testToken(HttpServletRequest request,
-			HttpServletResponse response) {
+			HttpServletResponse response) throws Exception {
+
+		if (request.getMethod() == "POST") {
+			Scanner scanner = new Scanner(request.getInputStream());
+			response.setContentType("application/xml");
+			response.setCharacterEncoding("UTF-8");
+			StringBuffer sb = new StringBuffer(100);
+			while (scanner.hasNextLine()) {
+				sb.append(scanner.nextLine());
+			}
+			System.out.println("\n\n\n" + sb + "\n\n\n");
+			return "send";
+		}
 
 		String signature = request.getParameter("signature");
 		String timestamp = request.getParameter("timestamp");
